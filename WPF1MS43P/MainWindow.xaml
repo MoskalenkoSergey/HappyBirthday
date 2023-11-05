@@ -1,0 +1,43 @@
+﻿<Window x:Class="WPF1MS43P.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF1MS43P"
+        mc:Ignorable="d"
+        Title="WPF_Work1" Height="600" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"></RowDefinition>
+            <RowDefinition Height="420"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0"  HorizontalAlignment="Center">
+            <TextBlock Style="{StaticResource TextBlockZagolovok}">Введите свою дату рождения</TextBlock>
+            <DatePicker Name="DP" HorizontalContentAlignment="Center" Cursor="Hand"></DatePicker>
+            <Button x:Name="Resultat" Click="Resultat_Click" Style="{StaticResource ResBtn}" Margin="0 10 0 0">Вычислить</Button>
+        </StackPanel>
+
+        <StackPanel x:Name="Back" Margin="5" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Style="{StaticResource TextBlockHead}">Ваш возраст (Лет, Месяцев, Дней):</TextBlock>
+            <TextBlock Name="ResCal1" Style="{StaticResource TextBlocks}"></TextBlock>
+            <TextBlock Style="{StaticResource TextBlockHead}">День недели, в который вы родились:</TextBlock>
+            <TextBlock Name="ResCal2" Style="{StaticResource TextBlocks}"></TextBlock>
+            <TextBlock Style="{StaticResource TextBlockHead}">Високосные года со дня вашего рождения:</TextBlock>
+            <TextBlock Name="ResCal3" Style="{StaticResource TextBlocks}"></TextBlock>
+
+            <StackPanel Width="Auto" HorizontalAlignment="Left">
+                <TextBlock Style="{StaticResource TextBlockHead}">Выберите календарь, чтобы узнать свой знак зодиака:</TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <ComboBox Name="ZnakCal" Style="{StaticResource Coll}">
+                        <ComboBoxItem Name="Defolt" IsSelected="True" IsEnabled="False">Выберите календарь</ComboBoxItem>
+                        <ComboBoxItem>Славянский календарь</ComboBoxItem>
+                        <ComboBoxItem>Восточный календарь</ComboBoxItem>
+                    </ComboBox>
+                    <Button Name="Zodiak" Click="Zodiak_Click" Margin="10 0 0 0" Style="{StaticResource ResBtn}">Вычислить</Button>
+                </StackPanel>
+                <TextBlock Name="ResCal" Style="{StaticResource TextBlocks}" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
